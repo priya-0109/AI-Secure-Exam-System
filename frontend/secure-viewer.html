@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Secure Viewer</title>
+
+<link rel="stylesheet" href="css/viewer.css">
+</head>
+<body>
+
+<div class="viewer-box">
+
+    <h1>Secure Paper Viewer</h1>
+
+    <input
+        type="text"
+        id="otpInput"
+        placeholder="Enter OTP Key">
+
+    <button type="button" onclick="verifyOTP()">
+        Verify
+    </button>
+
+    <!-- OTP verify hone ke baad details yaha aayengi -->
+    <div id="paperInfo"></div>
+
+</div>
+
+<script src="js/viewer.js"></script>
+
+</body>
+</html>  

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works — SecureExam AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .steps-timeline {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .steps-timeline::before {
+      content: '';
+      position: absolute;
+      left: 56px;
+      top: 40px;
+      bottom: 40px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-dim) 50%, transparent 100%);
+    }
+    .step-row {
+      display: flex;
+      gap: 36px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .step-row:last-child { margin-bottom: 0; }
+    .step-node {
+      position: relative;
+      flex-shrink: 0;
+      width: 112px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .step-circle {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      position: relative;
+      z-index: 1;
+      transition: all var(--transition);
+    }
+    .step-row:hover .step-circle {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 6px rgba(0,212,255,0.1);
+      background: rgba(0,212,255,0.08);
+    }
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+    }
+    .step-body {
+      flex: 1;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      margin-top: 8px;
+    }
+    .step-row:hover .step-body {
+      border-color: var(--cyan-dim);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .step-body h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .step-body p {
+      color: var(--text-mid);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+    .step-tag {
+      display: inline-flex;
+      margin-top: 14px;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-lo);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 640px) {
+      .steps-timeline::before { display: none; }
+      .step-row { flex-direction: column; gap: 12px; }
+      .step-node { flex-direction: row; width: auto; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">System Process</span>
+      <h1>How It <span class="text-gradient">Works</span></h1>
+      <p style="color:var(--text-mid);max-width:520px;margin:12px auto 0;font-size:1.0625rem">Seven sequential stages take an examination paper from faculty upload to secure, authorized access on exam day.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="steps-timeline">
+
+        <div class="step-row reveal">
+          <div class="step-node">
+            <div class="step-circle">📤</div>
+            <div class="step-num">Step 01</div>
+          </div>
+          <div class="step-body">
+            <h3>Faculty Creates Paper</h3>
+            <p>The process begins when a faculty member logs into their role-specific dashboard and uploads the examination question paper. The system accepts standard document formats and immediately begins the secure pipeline.</p>
+            <div class="step-tag">🎓 Role: Faculty</div>
+          </div>
+        </div>
+
+        <div class="step-row reveal">
+          <div class="step-node">
+            <div class="step-circle">🤖</div>
+            <div class="step-num">Step 02</div>
+          </div>
+          <div class="step-body">
+            <h3>AI Processing</h3>
+            <p>Once uploaded, the AI engine automatically processes each question. Using Natural Language Processing, the system paraphrases questions to enhance security — the meaning and difficulty are preserved while the phrasing is modified, making early leaks far less useful.</p>
+            <div class="step-tag">🤖 AI NLP Engine</div>
+          </div>
+        </div>
+
+        <div class="step-row reveal">
+          <div class="step-node">
+            <div class="step-circle">✅</div>
+            <div class="step-num">Step 03</div>
+          </div>
+          <div class="step-body">
+            <h3>Exam Cell Review</h3>
+            <p>Authorized exam cell personnel access the AI-processed paper in a read-only secure viewer. They review the content for accuracy, completeness, and quality, then either approve it to proceed or request changes from the faculty.</p>
+            <div class="step-tag">🏛 Role: Exam Cell</div>
+          </div>
+        </div>
+
+        <div class="step-row reveal">
+          <div class="step-node">
+            <div class="step-circle">🔒</div>
+            <div class="step-num">Step 04</div>
+          </div>
+          <div class="step-body">
+            <h3>Encryption</h3>
+            <p>Upon approval, the Security Officer triggers AES-256-CBC encryption on the paper. The content is converted into ciphertext that is unreadable without the decryption key — even if intercepted, the data is meaningless to any unauthorized party.</p>
+            <div class="step-tag">🛡 AES-256-CBC Encryption</div>
+          </div>
+        </div>
+
+        <div class="step-row reveal">
+          <div class="step-node">
+            <div class="step-circle">🔑</div>
+            <div class="step-num">Step 05</div>
+          </div>
+          <div class="step-body">
+            <h3>OTP Generation</h3>
+            <p>A cryptographically secure One-Time Password is generated and delivered only to pre-authorized users. The OTP has a defined expiration window — it cannot be reused, shared, or transferred. This creates a time-locked access gate.</p>
+            <div class="step-tag">⏱ Time-bound · Single-use</div>
+          </div>
+        </div>
+
+        <div class="step-row reveal">
+          <div class="step-node">
+            <div class="step-circle">👁</div>
+            <div class="step-num">Step 06</div>
+          </div>
+          <div class="step-body">
+            <h3>Secure Access</h3>
+            <p>Only authorized users who possess a valid, unexpired OTP can access the paper through the Secure Viewer. The viewer displays content in a controlled environment — no printing, no copying, no screenshots. Every access is logged in real time.</p>
+            <div class="step-tag">🖥 Secure Viewer · Activity Log</div>
+          </div>
+        </div>
+
+        <div class="step-row reveal">
+          <div class="step-node">
+            <div class="step-circle">📥</div>
+            <div class="step-num">Step 07</div>
+          </div>
+          <div class="step-body">
+            <h3>Distribution</h3>
+            <p>On exam day, the paper is securely downloaded and shared with the university's authorized personnel. The download event is logged, timestamped, and associated with the user's identity — creating a complete chain of custody from creation to distribution.</p>
+            <div class="step-tag">🏫 Role: Admin · Final Stage</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:64px" class="reveal">
+        <p style="color:var(--text-mid);margin-bottom:24px">Want to see the full feature set this workflow is built on?</p>
+        <a href="features.html" class="btn btn-primary">Explore All Features →</a>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+<script src="components.js"></script>
+<script>buildNav('how-it-works.html'); buildFooter();</script>
+</body>
+</html>

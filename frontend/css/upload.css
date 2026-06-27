@@ -1,0 +1,365 @@
+/* ============================================
+   upload.css — AI Exam Security System
+   Dark Cyber Theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── TOKENS ── */
+:root {
+    --bg-deep:    #070B14;
+    --bg-panel:   #0D1526;
+    --bg-card:    #111D35;
+    --border:     #1E3058;
+    --cyan:       #00D4FF;
+    --cyan-dim:   #007A99;
+    --cyan-glow:  rgba(0, 212, 255, 0.12);
+    --green:      #00C96B;
+    --green-glow: rgba(0, 201, 107, 0.15);
+    --text-hi:    #E8F0FE;
+    --text-mid:   #8CA8CC;
+    --text-lo:    #445B7A;
+    --radius:     10px;
+    --radius-lg:  16px;
+    --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-main:  'Inter', Arial, sans-serif;
+    --font-head:  'Space Grotesk', Arial, sans-serif;
+    --font-mono:  'JetBrains Mono', monospace;
+}
+
+/* ── RESET ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+/* ── BODY ── */
+body {
+    background: var(--bg-deep);
+    color: var(--text-hi);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Background grid */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 212, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.025) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Background glow */
+body::after {
+    content: '';
+    position: fixed;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse,
+        rgba(0, 212, 255, 0.06) 0%,
+        transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── CONTAINER ── */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── UPLOAD BOX ── */
+.upload-box {
+    background: var(--bg-card);
+    width: 500px;
+    max-width: 100%;
+    padding: 36px 32px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow:
+        0 32px 80px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(0, 212, 255, 0.04);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Top cyan accent */
+.upload-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+
+/* ── HEADING ── */
+.upload-box h1 {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-hi);
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.upload-box h1::before {
+    content: '📄';
+    font-size: 1.2rem;
+}
+
+/* ── LABELS ── */
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-lo);
+}
+
+/* ── INPUTS ── */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-hi);
+    font-family: var(--font-main);
+    font-size: 0.9375rem;
+    outline: none;
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: var(--text-lo);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus {
+    border-color: var(--cyan);
+    background: rgba(0, 212, 255, 0.03);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+/* Date & time picker color fix */
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;
+}
+
+/* ── FILE INPUT ── */
+input[type="file"] {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--bg-panel);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    color: var(--text-mid);
+    font-size: 0.875rem;
+    cursor: pointer;
+    outline: none;
+    transition:
+        border-color var(--transition),
+        background var(--transition);
+}
+
+input[type="file"]:hover {
+    border-color: var(--cyan-dim);
+    background: rgba(0, 212, 255, 0.03);
+}
+
+input[type="file"]:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+input[type="file"]::file-selector-button {
+    background: var(--bg-card);
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    margin-right: 12px;
+    transition: all var(--transition);
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--cyan-glow);
+    border-color: var(--cyan-dim);
+}
+
+/* ── TEXTAREA ── */
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-hi);
+    font-family: var(--font-main);
+    font-size: 0.9375rem;
+    min-height: 120px;
+    resize: vertical;
+    outline: none;
+    line-height: 1.6;
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+textarea::placeholder {
+    color: var(--text-lo);
+}
+
+textarea:focus {
+    border-color: var(--cyan);
+    background: rgba(0, 212, 255, 0.03);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+/* ── BUTTONS ── */
+button {
+    width: 100%;
+    margin-top: 14px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    color: white;
+    font-size: 0.9375rem;
+    font-family: var(--font-main);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+/* AI Paraphrase button — Cyan */
+button:first-of-type {
+    background: var(--cyan);
+    color: var(--bg-deep);
+    box-shadow: 0 4px 16px rgba(0, 212, 255, 0.2);
+}
+
+button:first-of-type::before {
+    content: '🤖';
+    font-size: 16px;
+}
+
+button:first-of-type:hover {
+    background: #00b8d9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 212, 255, 0.35);
+}
+
+/* Upload Paper button — Green */
+button:last-of-type {
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 201, 107, 0.2);
+}
+
+button:last-of-type::before {
+    content: '📤';
+    font-size: 16px;
+}
+
+button:last-of-type:hover {
+    background: #00a85a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 201, 107, 0.35);
+}
+
+button:active {
+    transform: translateY(0) !important;
+    box-shadow: none !important;
+}
+
+/* ── MESSAGE DIV ── */
+#message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    padding: 12px;
+    border-radius: var(--radius);
+    min-height: 0;
+    transition: all var(--transition);
+}
+
+/* JS se agar success/error class add karo toh auto style */
+#message.success {
+    background: rgba(0, 201, 107, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(0, 201, 107, 0.25);
+}
+
+#message.error {
+    background: rgba(255, 78, 106, 0.1);
+    color: #FF4E6A;
+    border: 1px solid rgba(255, 78, 106, 0.25);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 540px) {
+    .upload-box {
+        padding: 24px 18px;
+    }
+
+    .upload-box h1 {
+        font-size: 1.05rem;
+    }
+}

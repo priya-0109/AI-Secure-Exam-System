@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeackLence — AI-Powered Examination Paper Protection</title>
+<meta name="description" content="LeackLence: Protecting examination papers using AI, Encryption, OTP Authentication, and Cyber Security.">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-glow {
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(0,212,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 760px;
+      padding: 80px 0 60px;
+    }
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(0,255,156,0.3);
+      border-radius: 100px;
+      background: rgba(0,255,156,0.06);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--green);
+      margin-bottom: 28px;
+    }
+    .hero-status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse-cyan 2s infinite;
+    }
+    .hero h1 {
+      margin-bottom: 24px;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+      max-width: 600px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--text-mid);
+      margin-top: 2px;
+    }
+
+    /* ── TERMINAL WIDGET ── */
+    .hero-terminal {
+      position: absolute;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.05);
+    }
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+    }
+    .t-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .t-dot-r { background: #FF5F56; }
+    .t-dot-y { background: #FFBD2E; }
+    .t-dot-g { background: #27C93F; }
+    .terminal-title {
+      margin-left: auto;
+      margin-right: auto;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-lo);
+    }
+    .terminal-body {
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      line-height: 1.8;
+    }
+    .t-line { display: flex; gap: 8px; }
+    .t-prompt { color: var(--cyan); }
+    .t-cmd { color: var(--text-hi); }
+    .t-out { color: var(--text-mid); padding-left: 16px; }
+    .t-success { color: var(--green); padding-left: 16px; }
+    .t-warn { color: #FFB800; padding-left: 16px; }
+    .t-cursor {
+      display: inline-block;
+      width: 8px; height: 14px;
+      background: var(--cyan);
+      vertical-align: middle;
+      animation: blink 1.2s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ── WHY ── */
+    .why-section {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .why-text h2 { margin-bottom: 20px; }
+    .why-text p { color: var(--text-mid); line-height: 1.8; }
+
+    /* ── TECHNOLOGIES ── */
+    .tech-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .tech-card h3 { font-size: 1rem; margin-bottom: 8px; }
+    .tech-card p { font-size: 0.875rem; color: var(--text-mid); }
+
+    /* ── WORKFLOW ── */
+    .workflow-section { background: var(--bg-panel); border-top: 1px solid var(--border); }
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .workflow-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(100%/14);
+      right: calc(100%/14);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan-dim), var(--cyan-dim), transparent);
+    }
+    .workflow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .wf-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--cyan);
+      margin-bottom: 16px;
+      transition: all var(--transition);
+    }
+    .workflow-step:hover .wf-num {
+      border-color: var(--cyan);
+      background: rgba(0,212,255,0.12);
+      box-shadow: 0 0 0 6px rgba(0,212,255,0.08);
+    }
+    .wf-label {
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      line-height: 1.4;
+    }
+    .wf-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-terminal { display: none; }
+      .hero-content { max-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; gap: 40px; }
+      .workflow-steps { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .workflow-steps::before { display: none; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container">
+      <div class="hero-content animate-in">
+        <div class="hero-status">
+          <span class="hero-status-dot"></span>
+          System Active — All Services Operational
+        </div>
+        <h1>AI-Powered Secure<br><span class="text-gradient">Examination Paper</span><br>Protection System</h1>
+        <p>Protecting examination papers using Artificial Intelligence, AES Encryption, OTP Authentication, and Cyber Security technologies — from creation to authorized distribution.</p>
+        <div class="hero-actions">
+          <a href="login.html" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+            Get Started
+          </a>
+          <a href="how-it-works.html" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            View Project
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">256-bit</div>
+            <div class="stat-label">AES Encryption</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">OTP</div>
+            <div class="stat-label">One-Time Access</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">4-Role</div>
+            <div class="stat-label">Access Control</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">AI</div>
+            <div class="stat-label">Paraphrasing Engine</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal Widget -->
+    <div class="hero-terminal animate-in delay-3">
+      <div class="terminal-header">
+        <span class="t-dot t-dot-r"></span>
+        <span class="t-dot t-dot-y"></span>
+        <span class="t-dot t-dot-g"></span>
+        <span class="terminal-title">LeackLence — system log</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-line"><span class="t-prompt">→</span><span class="t-cmd">paper.upload("math_final_2026.pdf")</span></div>
+        <div class="t-success">✓ Paper received · 2.4MB</div>
+        <div class="t-line" style="margin-top:12px"><span class="t-prompt">→</span><span class="t-cmd">ai.paraphrase(paper)</span></div>
+        <div class="t-out">Processing 42 questions…</div>
+        <div class="t-success">✓ AI paraphrasing complete</div>
+        <div class="t-line" style="margin-top:12px"><span class="t-prompt">→</span><span class="t-cmd">examcell.approve(paper)</span></div>
+        <div class="t-success">✓ Approved by: exam_cell_01</div>
+        <div class="t-line" style="margin-top:12px"><span class="t-prompt">→</span><span class="t-cmd">aes.encrypt(paper, key=256)</span></div>
+        <div class="t-success">✓ Encrypted · AES-256-CBC</div>
+        <div class="t-line" style="margin-top:12px"><span class="t-prompt">→</span><span class="t-cmd">otp.generate(expires="4h")</span></div>
+        <div class="t-success">✓ OTP: ••••••  sent to authorized users</div>
+        <div class="t-line" style="margin-top:12px"><span class="t-prompt">→</span><span class="t-cmd">monitor.log("access_granted")</span></div>
+        <div class="t-out">Activity logged · <span style="color:var(--green)">SECURE</span></div>
+        <div class="t-line" style="margin-top:12px"><span class="t-prompt">→</span><span class="t-cmd"><span class="t-cursor"></span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS PROJECT -->
+  <section class="why-section section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text reveal">
+          <span class="eyebrow">The Problem</span>
+          <h2>Why This Project?</h2>
+          <p>Examination paper leaks can compromise the integrity of educational institutions, damage student careers, and erode public trust in academic systems.</p>
+          <p style="margin-top:16px">Our system provides a secure, end-to-end workflow to protect papers from the moment of creation through final distribution — with full audit trails and role-based accountability.</p>
+        </div>
+        <div class="grid-2 reveal">
+          <div class="card">
+            <div style="font-size:2rem;margin-bottom:12px">🔐</div>
+            <h3 style="font-size:0.9375rem;margin-bottom:8px">Zero Leak Tolerance</h3>
+            <p style="font-size:0.8125rem;color:var(--text-mid)">Multi-layer encryption ensures papers are never exposed in plain text.</p>
+          </div>
+          <div class="card">
+            <div style="font-size:2rem;margin-bottom:12px">👁</div>
+            <h3 style="font-size:0.9375rem;margin-bottom:8px">Full Audit Trail</h3>
+            <p style="font-size:0.8125rem;color:var(--text-mid)">Every access, approval, and action is logged and traceable.</p>
+          </div>
+          <div class="card">
+            <div style="font-size:2rem;margin-bottom:12px">⏱</div>
+            <h3 style="font-size:0.9375rem;margin-bottom:8px">Time-Bound Access</h3>
+            <p style="font-size:0.8125rem;color:var(--text-mid)">OTP keys expire automatically, preventing reuse or theft.</p>
+          </div>
+          <div class="card">
+            <div style="font-size:2rem;margin-bottom:12px">🤖</div>
+            <h3 style="font-size:0.9375rem;margin-bottom:8px">AI Enhanced</h3>
+            <p style="font-size:0.8125rem;color:var(--text-mid)">AI paraphrasing adds an extra layer of security to question integrity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY TECHNOLOGIES -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:60px" class="reveal">
+        <span class="eyebrow" style="justify-content:center">Technology Stack</span>
+        <h2>Key Technologies</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card tech-card reveal">
+          <div class="icon-box">🤖</div>
+          <h3>Artificial Intelligence</h3>
+          <p>NLP-powered paraphrasing engine that rewrites questions while preserving their academic intent and difficulty level.</p>
+        </div>
+        <div class="card tech-card reveal delay-1">
+          <div class="icon-box" style="background:rgba(0,255,156,0.1);border-color:rgba(0,255,156,0.2)">🔒</div>
+          <h3>AES-256 Encryption</h3>
+          <p>Military-grade Advanced Encryption Standard protects paper content from unauthorized access at rest and in transit.</p>
+        </div>
+        <div class="card tech-card reveal delay-2">
+          <div class="icon-box" style="background:rgba(255,78,106,0.1);border-color:rgba(255,78,106,0.2)">🔑</div>
+          <h3>OTP Verification</h3>
+          <p>One-Time Passwords grant time-limited access to verified, authorized users only — keys auto-expire after use.</p>
+        </div>
+        <div class="card tech-card reveal">
+          <div class="icon-box">🛡</div>
+          <h3>Cyber Security</h3>
+          <p>Intrusion detection, suspicious activity monitoring, and anomaly alerts protect against unauthorized access attempts.</p>
+        </div>
+        <div class="card tech-card reveal delay-1">
+          <div class="icon-box" style="background:rgba(0,102,255,0.1);border-color:rgba(0,102,255,0.2)">📊</div>
+          <h3>Monitoring Dashboard</h3>
+          <p>Real-time activity feed gives security officers complete visibility into every system event and user action.</p>
+        </div>
+        <div class="card tech-card reveal delay-2">
+          <div class="icon-box" style="background:rgba(255,184,0,0.1);border-color:rgba(255,184,0,0.2)">💾</div>
+          <h3>SQLite Database</h3>
+          <p>Lightweight, reliable, embedded database stores all paper records, logs, OTPs, and user data securely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEM WORKFLOW -->
+  <section class="workflow-section section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:60px" class="reveal">
+        <span class="eyebrow" style="justify-content:center">End-to-End Flow</span>
+        <h2>System Workflow</h2>
+        <p style="color:var(--text-mid);margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto">Seven carefully designed stages take an examination paper from faculty upload to authorized student distribution.</p>
+      </div>
+      <div class="workflow-steps reveal">
+        <div class="workflow-step">
+          <div class="wf-num">01</div>
+          <div class="wf-icon">📤</div>
+          <div class="wf-label">Faculty Uploads Paper</div>
+        </div>
+        <div class="workflow-step">
+          <div class="wf-num">02</div>
+          <div class="wf-icon">🤖</div>
+          <div class="wf-label">AI Paraphrases Questions</div>
+        </div>
+        <div class="workflow-step">
+          <div class="wf-num">03</div>
+          <div class="wf-icon">✅</div>
+          <div class="wf-label">Exam Cell Approval</div>
+        </div>
+        <div class="workflow-step">
+          <div class="wf-num">04</div>
+          <div class="wf-icon">🔒</div>
+          <div class="wf-label">Security Encryption</div>
+        </div>
+        <div class="workflow-step">
+          <div class="wf-num">05</div>
+          <div class="wf-icon">🔑</div>
+          <div class="wf-label">OTP Generation</div>
+        </div>
+        <div class="workflow-step">
+          <div class="wf-num">06</div>
+          <div class="wf-icon">👁</div>
+          <div class="wf-label">Secure Viewer Access</div>
+        </div>
+        <div class="workflow-step">
+          <div class="wf-num">07</div>
+          <div class="wf-icon">📥</div>
+          <div class="wf-label">Authorized Download</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:48px" class="reveal">
+        <a href="how-it-works.html" class="btn btn-outline">Learn More About Each Step →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;background:var(--bg-panel);border:1px solid var(--border);border-radius:24px;padding:64px 40px;position:relative;overflow:hidden" class="reveal">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.07) 0%, transparent 70%);pointer-events:none"></div>
+        <span class="eyebrow" style="justify-content:center">Get Access</span>
+        <h2 style="margin-bottom:16px">Ready to Secure Your Exams?</h2>
+        <p style="color:var(--text-mid);max-width:480px;margin:0 auto 32px">Join the secure examination ecosystem. Login to access your role-based dashboard and start protecting papers today.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="login.html" class="btn btn-primary">Login to Dashboard</a>
+          <a href="contact.html" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="components.js"></script>
+<script>buildNav('index.html'); buildFooter();</script>
+</body>
+</html>

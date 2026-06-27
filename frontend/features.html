@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — SecureExam AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .feature-card:hover {
+      border-color: var(--cyan-dim);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-card h3 { margin-bottom: 12px; }
+    .feature-card p { color: var(--text-mid); font-size: 0.9375rem; line-height: 1.7; }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .role-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .role-card:hover {
+      border-color: var(--cyan-dim);
+      transform: translateY(-4px);
+    }
+    .role-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+    .role-card h3 { font-size: 1rem; margin-bottom: 8px; }
+    .role-card p { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
+    .role-perms {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .role-perm {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      text-align: left;
+    }
+    .role-perm::before {
+      content: '→';
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) { .roles-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .roles-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">What's Inside</span>
+      <h1>Core <span class="text-gradient">Features</span></h1>
+      <p style="color:var(--text-mid);max-width:520px;margin:12px auto 0;font-size:1.0625rem">Every capability designed with one principle: maximum security without compromising usability for authorized users.</p>
+    </div>
+  </section>
+
+  <!-- CORE FEATURES -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px" class="reveal">
+        <span class="eyebrow" style="justify-content:center">Capabilities</span>
+        <h2>Core Features</h2>
+      </div>
+      <div class="grid-3">
+
+        <div class="feature-card reveal">
+          <div class="icon-box">🤖</div>
+          <h3>AI Question Paraphrasing</h3>
+          <p>The NLP engine automatically restructures each question's phrasing while preserving its semantic meaning, difficulty level, and academic intent. This ensures that even if a question is leaked early, its usefulness is significantly diminished.</p>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px">
+            <span class="badge badge-cyan">NLP</span>
+            <span class="badge badge-green">Semantic Preservation</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal delay-1">
+          <div class="icon-box" style="background:rgba(0,255,156,0.1);border-color:rgba(0,255,156,0.2)">🔒</div>
+          <h3>AES Encryption</h3>
+          <p>Advanced Encryption Standard (AES-256-CBC) is applied to all examination papers after approval. The ciphertext is stored and transmitted securely — without the correct decryption key, the content is computationally impossible to recover.</p>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px">
+            <span class="badge badge-green">AES-256-CBC</span>
+            <span class="badge badge-cyan">Zero Plaintext Storage</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal delay-2">
+          <div class="icon-box" style="background:rgba(255,78,106,0.1);border-color:rgba(255,78,106,0.2)">🔑</div>
+          <h3>OTP Authentication</h3>
+          <p>One-Time Passwords provide secure, temporary access gates. Each OTP is cryptographically generated, bound to a specific user, and expires after a configurable window. After use, the key is invalidated — it cannot be replayed or shared.</p>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px">
+            <span class="badge badge-cyan">Time-Bound</span>
+            <span class="badge badge-green">Single-Use</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="icon-box" style="background:rgba(0,102,255,0.1);border-color:rgba(0,102,255,0.2)">🖥</div>
+          <h3>Secure Viewer</h3>
+          <p>Papers are displayed through a hardened, read-only viewer that disables printing, copying, and screenshotting. Content is rendered in-session and never persisted to local storage. Access is only granted after successful OTP verification.</p>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px">
+            <span class="badge badge-cyan">No Print/Copy</span>
+            <span class="badge badge-green">Session-Only</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal delay-1">
+          <div class="icon-box" style="background:rgba(255,184,0,0.1);border-color:rgba(255,184,0,0.2)">📋</div>
+          <h3>Activity Logging</h3>
+          <p>Every significant event is automatically logged with a timestamp, user identity, IP address, and action type. The immutable audit trail enables post-incident investigation and creates accountability for every user in the system.</p>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px">
+            <span class="badge badge-cyan">Immutable Log</span>
+            <span class="badge badge-green">Full Audit Trail</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal delay-2">
+          <div class="icon-box">👥</div>
+          <h3>Role-Based Access Control</h3>
+          <p>Four distinct roles — Faculty, Exam Cell, Security Officer, and Admin — each have precisely scoped permissions. No user can perform actions outside their designated role, creating strong separation of duties.</p>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px">
+            <span class="badge badge-cyan">4 Roles</span>
+            <span class="badge badge-green">Least Privilege</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ROLES -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px" class="reveal">
+        <span class="eyebrow" style="justify-content:center">Access Control</span>
+        <h2>Role-Based Permissions</h2>
+        <p style="color:var(--text-mid);max-width:480px;margin:12px auto 0">Each role operates in a separate permission lane — no overlap, no privilege escalation.</p>
+      </div>
+      <div class="roles-grid">
+        <div class="role-card reveal">
+          <div class="role-icon">🎓</div>
+          <h3>Faculty</h3>
+          <p>Paper creators and subject matter experts.</p>
+          <div class="role-perms">
+            <div class="role-perm">Upload question papers</div>
+            <div class="role-perm">View own submissions</div>
+            <div class="role-perm">Respond to revision requests</div>
+          </div>
+        </div>
+        <div class="role-card reveal delay-1">
+          <div class="role-icon">🏛</div>
+          <h3>Exam Cell</h3>
+          <p>Authorized reviewers and approvers.</p>
+          <div class="role-perms">
+            <div class="role-perm">View all submitted papers</div>
+            <div class="role-perm">Approve or reject papers</div>
+            <div class="role-perm">Request revisions</div>
+          </div>
+        </div>
+        <div class="role-card reveal delay-2">
+          <div class="role-icon">🛡</div>
+          <h3>Security Officer</h3>
+          <p>Encryption and key management specialists.</p>
+          <div class="role-perms">
+            <div class="role-perm">Encrypt approved papers</div>
+            <div class="role-perm">Generate OTP keys</div>
+            <div class="role-perm">Monitor activity logs</div>
+          </div>
+        </div>
+        <div class="role-card reveal delay-3">
+          <div class="role-icon">👑</div>
+          <h3>Admin</h3>
+          <p>Full system management and oversight.</p>
+          <div class="role-perms">
+            <div class="role-perm">Manage all users & roles</div>
+            <div class="role-perm">Full audit log access</div>
+            <div class="role-perm">System configuration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="components.js"></script>
+<script>buildNav('features.html'); buildFooter();</script>
+</body>
+</html>

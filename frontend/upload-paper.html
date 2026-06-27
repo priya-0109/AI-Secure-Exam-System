@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Paper</title>
+
+    <link rel="stylesheet" href="css/upload.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="upload-box">
+
+        <h1>Upload Examination Paper</h1>
+
+        <form id="uploadForm">
+
+            <label>Subject Name</label>
+            <input type="text" id="subject">
+
+            <label>Paper Title</label>
+            <input type="text" id="paperTitle">
+
+            <label>Exam Date</label>
+            <input type="date" id="examDate">
+
+            <label>Exam Time</label>
+            <input type="time" id="examTime">
+
+            <label>Number of Copies Required</label>
+            <input type="number" id="copies">
+
+            <label>Select PDF</label>
+            <input type="file" id="paperFile">
+
+            <label>Question Text</label>
+            <textarea id="questionText"></textarea>
+
+            <button
+            type="button"
+            onclick="paraphrasePaper()">
+            AI Paraphrase
+            </button>
+
+            <button
+            type="button"
+            onclick="uploadPaper()">
+            Upload Paper
+            </button>
+
+
+        </form>
+
+        <div id="message"></div>
+
+    </div>
+
+</div>
+
+<script src="js/upload.js"></script>
+
+</body>
+</html>

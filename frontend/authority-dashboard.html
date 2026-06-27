@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authority Dashboard</title>
+
+    <link rel="stylesheet" href="css/authority.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Authority Panel</h2>
+
+        <ul>
+            <li>Dashboard</li>
+            <li onclick="generateKey()">Generate OTP Key</li>
+            <li onclick="openViewer()">Secure Viewer</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <h1>Authority Dashboard</h1>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Total Papers</h3>
+                <p id="totalPapers">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Approved Papers</h3>
+                <p id="approvedPapers">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending Papers</h3>
+                <p id="pendingPapers">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Rejected Papers</h3>
+                <p id="rejectedPapers">0</p>
+            </div>
+
+        </div>
+
+       <div class="paper-section">
+
+    <h2>Encrypted Papers</h2>
+
+    <table id="paperTable">
+
+        <tr>
+           <th>ID</th>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th>Download</th>
+        </tr>
+
+    </table>
+
+</div>
+
+        <!-- <button onclick="openViewer()">
+            Open Secure Viewer
+        </button> -->
+
+        <div class="otp-section">
+
+            <button onclick="generateKey()">
+                Generate One-Time Key
+            </button>
+
+            <h2 id="otpDisplay"></h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/authority.js"></script>
+
+</body>
+</html>

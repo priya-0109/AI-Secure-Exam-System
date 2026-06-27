@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developers — SecureExam AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .team-card:hover {
+      border-color: var(--cyan-dim);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .team-card-top {
+      background: linear-gradient(135deg, var(--bg-panel), var(--bg-deep));
+      border-bottom: 1px solid var(--border);
+      padding: 36px 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), #0066FF);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+      border: 2px solid rgba(0,212,255,0.3);
+    }
+    .avatar-guide {
+      background: linear-gradient(135deg, #6B40FF, #FF4E6A);
+      border-color: rgba(107,64,255,0.3);
+    }
+    .team-info h3 { font-size: 1.25rem; margin-bottom: 4px; }
+    .team-role {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--cyan);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .team-card-body { padding: 24px 32px; }
+    .resp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .resp-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--text-mid);
+    }
+    .resp-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    /* TECH STACK */
+    .tech-stack {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .tech-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .tech-item:hover {
+      border-color: var(--cyan-dim);
+      transform: translateY(-3px);
+    }
+    .tech-item-icon { font-size: 28px; margin-bottom: 10px; }
+    .tech-item-name { font-size: 0.875rem; font-weight: 600; margin-bottom: 4px; }
+    .tech-item-cat { font-size: 0.75rem; color: var(--text-lo); font-family: var(--font-mono); }
+
+    @media (max-width: 680px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .tech-stack { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">The Team</span>
+      <h1>Development <span class="text-gradient">Team</span></h1>
+      <p style="color:var(--text-mid);max-width:520px;margin:12px auto 0;font-size:1.0625rem">The people behind SecureExam AI — built with dedication to security, integrity, and academic excellence.</p>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px" class="reveal">
+        <span class="eyebrow" style="justify-content:center">People</span>
+        <h2>Meet the Team</h2>
+      </div>
+      <div class="team-grid">
+
+        <div class="team-card reveal">
+          <div class="team-card-top">
+            <div class="avatar">👩‍💻</div>
+            <div class="team-info">
+              <h3>LeackLence Warriors</h3>
+              <div class="team-role">Project Developer</div>
+              <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+                <span class="badge badge-cyan">Full Stack</span>
+                <span class="badge badge-green">Security</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <div style="font-size:0.75rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.1em;color:var(--text-lo);margin-bottom:12px">Responsible For</div>
+            <ul class="resp-list">
+              <li>Frontend Development</li>
+              <li>Backend Development</li>
+              <li>Database Design</li>
+              <li>Security Implementation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="team-card reveal delay-1">
+          <div class="team-card-top">
+            <div class="avatar avatar-guide">👨‍🏫</div>
+            <div class="team-info">
+              <h3>Samistha Goswami</h3>
+              <div class="team-role" style="color:#a78bfa">Project Mentor</div>
+              <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+                <span class="badge" style="background:rgba(107,64,255,0.12);color:#a78bfa;border-color:rgba(107,64,255,0.25)">Guidance</span>
+                <span class="badge" style="background:rgba(255,78,106,0.1);color:#ff4e6a;border-color:rgba(255,78,106,0.2)">Evaluation</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <div style="font-size:0.75rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.1em;color:var(--text-lo);margin-bottom:12px">Provided</div>
+            <ul class="resp-list">
+              <li>Technical Guidance</li>
+              <li>Project Evaluation</li>
+              <li>Research Support</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TECH STACK -->
+  <section class="section" style="background:var(--bg-panel)">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px" class="reveal">
+        <span class="eyebrow" style="justify-content:center">Built With</span>
+        <h2>Technologies Used</h2>
+        <p style="color:var(--text-mid);max-width:480px;margin:12px auto 0">A carefully chosen stack balancing security, performance, and simplicity.</p>
+      </div>
+      <div class="tech-stack">
+        <div class="tech-item reveal">
+          <div class="tech-item-icon">🌐</div>
+          <div class="tech-item-name">HTML5</div>
+          <div class="tech-item-cat">Frontend</div>
+        </div>
+        <div class="tech-item reveal delay-1">
+          <div class="tech-item-icon">🎨</div>
+          <div class="tech-item-name">CSS3</div>
+          <div class="tech-item-cat">Frontend</div>
+        </div>
+        <div class="tech-item reveal delay-2">
+          <div class="tech-item-icon">⚡</div>
+          <div class="tech-item-name">JavaScript</div>
+          <div class="tech-item-cat">Frontend</div>
+        </div>
+        <div class="tech-item reveal delay-3">
+          <div class="tech-item-icon">🐍</div>
+          <div class="tech-item-name">Python</div>
+          <div class="tech-item-cat">Backend</div>
+        </div>
+        <div class="tech-item reveal">
+          <div class="tech-item-icon">🧪</div>
+          <div class="tech-item-name">Flask</div>
+          <div class="tech-item-cat">Backend Framework</div>
+        </div>
+        <div class="tech-item reveal delay-1">
+          <div class="tech-item-icon">💾</div>
+          <div class="tech-item-name">SQLite</div>
+          <div class="tech-item-cat">Database</div>
+        </div>
+        <div class="tech-item reveal delay-2">
+          <div class="tech-item-icon">🔒</div>
+          <div class="tech-item-name">AES Encryption</div>
+          <div class="tech-item-cat">Security</div>
+        </div>
+        <div class="tech-item reveal delay-3">
+          <div class="tech-item-icon">🤖</div>
+          <div class="tech-item-name">AI / NLP</div>
+          <div class="tech-item-cat">Intelligence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="components.js"></script>
+<script>buildNav('developers.html'); buildFooter();</script>
+</body>
+</html>

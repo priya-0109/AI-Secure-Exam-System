@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — SecureExam AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .objectives-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .obj-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      transition: border-color var(--transition);
+    }
+    .obj-item:hover { border-color: var(--cyan-dim); }
+    .obj-check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(0,255,156,0.15);
+      border: 1px solid rgba(0,255,156,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .obj-text { font-size: 0.875rem; color: var(--text-mid); }
+
+    .vision-box {
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,102,255,0.05));
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .vision-box::before {
+      content: '"';
+      position: absolute;
+      top: -20px; left: 20px;
+      font-size: 200px;
+      font-family: var(--font-display);
+      color: rgba(0,212,255,0.05);
+      line-height: 1;
+    }
+    .vision-box p {
+      font-size: 1.375rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--text-hi);
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .objectives-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .objectives-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">The Project</span>
+      <h1 style="margin-bottom:16px">About <span class="text-gradient">SecureExam AI</span></h1>
+      <p style="color:var(--text-mid);max-width:560px;margin:0 auto;font-size:1.0625rem">A final-year project engineering a complete, trustworthy solution to examination paper leaks in academic institutions.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="align-items:center;gap:64px">
+        <div class="reveal">
+          <span class="eyebrow">Overview</span>
+          <h2 style="margin-bottom:20px">About The Project</h2>
+          <p style="color:var(--text-mid);margin-bottom:16px;line-height:1.9">The AI-Powered Secure Examination Paper Protection System is designed to eliminate examination paper leaks through advanced, layered security mechanisms.</p>
+          <p style="color:var(--text-mid);line-height:1.9">The system combines Artificial Intelligence, Cyber Security, Encryption, and Authentication technologies to ensure confidentiality and integrity throughout the entire examination process — from paper creation by faculty to secure distribution on exam day.</p>
+          <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap">
+            <span class="badge badge-cyan">🤖 AI-Powered</span>
+            <span class="badge badge-green">🔒 AES-256</span>
+            <span class="badge badge-cyan">🔑 OTP</span>
+            <span class="badge badge-green">🛡 Cyber Secure</span>
+          </div>
+        </div>
+        <div class="reveal delay-1">
+          <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px">
+            <h3 style="font-size:0.875rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.1em;color:var(--text-lo);margin-bottom:20px">System Architecture</h3>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border)">
+                <div style="font-size:18px">🎓</div>
+                <div>
+                  <div style="font-size:0.8125rem;font-weight:600">Faculty Layer</div>
+                  <div style="font-size:0.75rem;color:var(--text-mid)">Paper creation & upload</div>
+                </div>
+                <div class="badge badge-cyan" style="margin-left:auto">Role 1</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border)">
+                <div style="font-size:18px">🏛</div>
+                <div>
+                  <div style="font-size:0.8125rem;font-weight:600">Exam Cell Layer</div>
+                  <div style="font-size:0.75rem;color:var(--text-mid)">Review & approval</div>
+                </div>
+                <div class="badge badge-green" style="margin-left:auto">Role 2</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border)">
+                <div style="font-size:18px">🛡</div>
+                <div>
+                  <div style="font-size:0.8125rem;font-weight:600">Security Officer Layer</div>
+                  <div style="font-size:0.75rem;color:var(--text-mid)">Encryption & OTP</div>
+                </div>
+                <div class="badge badge-cyan" style="margin-left:auto">Role 3</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border)">
+                <div style="font-size:18px">👑</div>
+                <div>
+                  <div style="font-size:0.8125rem;font-weight:600">Admin Layer</div>
+                  <div style="font-size:0.75rem;color:var(--text-mid)">Full system control</div>
+                </div>
+                <div class="badge badge-green" style="margin-left:auto">Role 4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- OBJECTIVES -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px" class="reveal">
+        <span class="eyebrow" style="justify-content:center">What We Achieve</span>
+        <h2>Project Objectives</h2>
+      </div>
+      <div class="objectives-grid">
+        <div class="obj-item reveal">
+          <div class="obj-check">✓</div>
+          <div>
+            <div style="font-weight:600;margin-bottom:4px;font-size:0.9375rem">Prevent Paper Leaks</div>
+            <div class="obj-text">Multi-layer encryption and access control ensure papers never reach unauthorized hands.</div>
+          </div>
+        </div>
+        <div class="obj-item reveal delay-1">
+          <div class="obj-check">✓</div>
+          <div>
+            <div style="font-weight:600;margin-bottom:4px;font-size:0.9375rem">Secure Question Papers</div>
+            <div class="obj-text">AES-256 encryption protects question content from creation through distribution.</div>
+          </div>
+        </div>
+        <div class="obj-item reveal delay-2">
+          <div class="obj-check">✓</div>
+          <div>
+            <div style="font-weight:600;margin-bottom:4px;font-size:0.9375rem">Track All Activities</div>
+            <div class="obj-text">Comprehensive logging records every user action with timestamps and identity.</div>
+          </div>
+        </div>
+        <div class="obj-item reveal">
+          <div class="obj-check">✓</div>
+          <div>
+            <div style="font-weight:600;margin-bottom:4px;font-size:0.9375rem">Generate One-Time Keys</div>
+            <div class="obj-text">OTP authentication grants temporary, single-use access that auto-expires.</div>
+          </div>
+        </div>
+        <div class="obj-item reveal delay-1">
+          <div class="obj-check">✓</div>
+          <div>
+            <div style="font-weight:600;margin-bottom:4px;font-size:0.9375rem">Monitor Suspicious Actions</div>
+            <div class="obj-text">Real-time anomaly detection flags unusual access patterns for security review.</div>
+          </div>
+        </div>
+        <div class="obj-item reveal delay-2">
+          <div class="obj-check">✓</div>
+          <div>
+            <div style="font-weight:600;margin-bottom:4px;font-size:0.9375rem">End-to-End Security</div>
+            <div class="obj-text">Every stage — upload, AI processing, approval, encryption, access — is fully secured.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VISION -->
+  <section class="section">
+    <div class="container" style="max-width:760px">
+      <div class="reveal">
+        <span class="eyebrow" style="justify-content:center;margin-bottom:32px">Our Mission</span>
+        <div class="vision-box">
+          <p>To create a trusted and secure examination environment for educational institutions — where academic integrity is protected by technology, not compromised by it.</p>
+          <div style="margin-top:24px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
+            <span class="badge badge-cyan">Trust</span>
+            <span class="badge badge-green">Security</span>
+            <span class="badge badge-cyan">Integrity</span>
+            <span class="badge badge-green">Innovation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="components.js"></script>
+<script>buildNav('about.html'); buildFooter();</script>
+</body>
+</html>
