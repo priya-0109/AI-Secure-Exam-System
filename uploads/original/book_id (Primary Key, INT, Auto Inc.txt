@@ -1,0 +1,24 @@
+book_id (Primary Key, INT, Auto Increment)
+
+title (VARCHAR)
+
+author (VARCHAR)
+
+category_id (Foreign Key, INT, references Categories.category_id)
+
+publisher (VARCHAR)
+
+publication_date (DATE)
+
+price (DECIMAL)
+
+stock_quantity (INT)
+
+description (TEXT)
+
+cover_image (VARCHAR)
+
+
+1 bookcatmenu
+2 dbboks
+3 bookdetail
